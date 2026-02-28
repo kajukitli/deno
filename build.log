@@ -1,0 +1,497 @@
+   Compiling aws-lc-rs v1.13.1
+   Compiling aws-lc-sys v0.29.0
+   Compiling rustls v0.23.28
+   Compiling libsqlite3-sys v0.35.0
+   Compiling swc_ecma_ast v18.0.0
+   Compiling deno_permissions v0.91.0 (/opt/kaju/deno/runtime/permissions)
+   Compiling rustls-webpki v0.103.3
+   Compiling flate2 v1.0.35
+   Compiling swc_ecma_codegen_macros v2.0.2
+   Compiling quinn v0.11.8
+   Compiling text_lines v0.6.0
+   Compiling semver v1.0.25
+   Compiling simdutf8 v0.1.5
+   Compiling hashbrown v0.12.3
+   Compiling hex v0.4.3
+   Compiling zerocopy v0.8.27
+   Compiling foldhash v0.2.0
+   Compiling ascii v1.1.0
+   Compiling hashbrown v0.16.0
+   Compiling indexmap v1.9.3
+   Compiling swc_atoms v9.0.0
+   Compiling h2 v0.4.7
+   Compiling swc_sourcemap v9.3.4
+   Compiling phf v0.11.2
+   Compiling zerocopy-derive v0.8.27
+   Compiling bitflags v1.3.2
+   Compiling cranelift-isle v0.116.1
+   Compiling heapless v0.8.0
+   Compiling fallible-iterator v0.3.0
+   Compiling fallible-streaming-iterator v0.1.9
+   Compiling ash v0.38.0+1.3.281
+   Compiling hyper v1.6.0
+   Compiling swc_common v17.0.1
+   Compiling naga v28.0.0
+   Compiling hash32 v0.3.1
+   Compiling axum v0.7.5
+   Compiling simd-adler32 v0.3.7
+   Compiling same-file v1.0.6
+   Compiling ref-cast v1.0.22
+   Compiling num-bigint-dig v0.8.6
+   Compiling rustix v0.38.34
+   Compiling cranelift-codegen-shared v0.116.1
+   Compiling cranelift-codegen-meta v0.116.1
+   Compiling walkdir v2.5.0
+   Compiling half v2.7.1
+   Compiling hyper-util v0.1.17
+   Compiling axum-core v0.4.5
+   Compiling swc_ecma_transforms_macros v1.0.1
+   Compiling codespan-reporting v0.12.0
+   Compiling gpu-descriptor-types v0.2.0
+   Compiling spirv v0.3.0+sdk-1.3.268.0
+   Compiling ref-cast-impl v1.0.22
+   Compiling cranelift-bitset v0.116.1
+   Compiling hexf-parse v0.2.1
+   Compiling matchit v0.7.3
+   Compiling icu_properties_data v2.1.1
+   Compiling linux-raw-sys v0.4.13
+   Compiling target-lexicon v0.13.2
+   Compiling adler v1.0.2
+   Compiling presser v0.3.1
+   Compiling khronos-egl v6.0.0
+   Compiling miniz_oxide v0.7.2
+   Compiling cranelift-entity v0.116.1
+   Compiling cranelift-codegen v0.116.1
+   Compiling fdeflate v0.3.4
+   Compiling rustc_version v0.4.0
+   Compiling swc_ecma_parser v27.0.7
+   Compiling dashmap v5.5.3
+   Compiling opentelemetry v0.27.0
+   Compiling wgpu-hal v28.0.0
+   Compiling lazy-regex-proc_macros v3.1.0
+   Compiling twox-hash v2.1.0
+   Compiling arbitrary v1.4.1
+   Compiling dyn-clone v1.0.17
+   Compiling utf-8 v0.7.6
+   Compiling deno_maybe_sync v0.19.0 (/opt/kaju/deno/libs/maybe_sync)
+   Compiling curve25519-dalek v4.1.3
+   Compiling cranelift-control v0.116.1
+   Compiling cranelift-bforest v0.116.1
+   Compiling swc_ecma_visit v18.0.1
+   Compiling nix v0.29.0
+   Compiling universal-hash v0.5.1
+   Compiling ordered-float v4.6.0
+   Compiling zune-core v0.4.12
+   Compiling color_quant v1.1.0
+   Compiling raw-window-handle v0.6.2
+   Compiling glow v0.16.0
+   Compiling unicode-xid v0.2.6
+   Compiling weezl v0.1.8
+   Compiling diff v0.1.13
+   Compiling denokv_proto v0.13.0
+   Compiling yansi v1.0.1
+   Compiling quick-error v2.0.1
+   Compiling error_reporter v1.0.0
+   Compiling num-conv v0.2.0
+   Compiling byteorder-lite v0.1.0
+   Compiling unicode-width v0.1.13
+   Compiling opaque-debug v0.3.1
+   Compiling powerfmt v0.2.0
+   Compiling time-core v0.1.8
+   Compiling profiling v1.0.15
+   Compiling time-macros v0.2.27
+   Compiling deranged v0.5.6
+   Compiling polyval v0.6.2
+   Compiling image-webp v0.2.1
+   Compiling pretty_assertions v1.4.1
+   Compiling swc_ecma_utils v24.0.0
+   Compiling gif v0.13.1
+   Compiling synstructure v0.12.6
+   Compiling zune-jpeg v0.4.13
+   Compiling ctr v0.9.2
+   Compiling lcms2-sys v4.0.5
+   Compiling aead v0.5.2
+   Compiling curve25519-dalek-derive v0.1.1
+   Compiling bstr v1.9.1
+   Compiling typeid v1.0.3
+   Compiling fastrand v2.3.0
+   Compiling asn1-rs-derive v0.4.0
+   Compiling swc_ecma_transforms_base v30.0.1
+   Compiling time v0.3.47
+   Compiling ghash v0.5.1
+   Compiling asn1-rs-impl v0.1.0
+   Compiling elliptic-curve v0.13.8
+   Compiling deno_features v0.29.0 (/opt/kaju/deno/runtime/features)
+   Compiling pkcs1 v0.7.5
+   Compiling rusticata-macros v4.1.0
+   Compiling float-cmp v0.9.0
+   Compiling bumpalo v3.19.0
+   Compiling foreign-types-macros v0.2.3
+   Compiling foreign-types-shared v0.3.1
+   Compiling cache_control v0.2.0
+   Compiling foreign-types v0.5.0
+   Compiling asn1-rs v0.5.2
+   Compiling vsock v0.5.1
+   Compiling derive-io v0.4.1
+   Compiling wgpu-core v28.0.0
+   Compiling http v0.2.12
+   Compiling tokio-stream v0.1.16
+   Compiling zstd-sys v2.0.15+zstd.1.5.7
+   Compiling thread_local v1.1.8
+   Compiling litrs v0.4.1
+   Compiling oid-registry v0.6.1
+   Compiling keccak v0.1.6
+   Compiling macro_rules_attribute-proc_macro v0.2.2
+   Compiling path-clean v0.1.0
+   Compiling macro_rules_attribute v0.2.2
+   Compiling sha3 v0.10.8
+   Compiling document-features v0.2.10
+   Compiling rustls-tokio-stream v0.8.0
+   Compiling ron v0.12.0
+   Compiling lcms2 v6.1.0
+   Compiling tokio-vsock v0.7.1
+   Compiling ecdsa v0.16.9
+   Compiling x25519-dalek v2.0.1
+   Compiling opentelemetry-http v0.27.0
+   Compiling moka v0.12.10
+   Compiling hickory-proto v0.25.2
+   Compiling errno v0.2.8
+   Compiling netif v0.1.6
+   Compiling fixedbitset v0.5.7
+   Compiling wtf8 v0.1.0
+   Compiling hickory-resolver v0.25.2
+   Compiling petgraph v0.7.1
+   Compiling exec v0.3.1
+   Compiling deno_tls v0.219.0 (/opt/kaju/deno/ext/tls)
+   Compiling der-parser v8.2.0
+   Compiling primeorder v0.13.6
+   Compiling tokio-rustls v0.26.0
+   Compiling quinn-proto v0.11.12
+   Compiling deno_io v0.142.0 (/opt/kaju/deno/ext/io)
+   Compiling deno_signals v0.23.0 (/opt/kaju/deno/ext/signals)
+   Compiling quinn-udp v0.5.9
+   Compiling ed25519 v2.2.3
+   Compiling deno_semver v0.9.1
+   Compiling hashlink v0.10.0
+   Compiling libffi-sys v3.3.3
+   Compiling nom v5.1.3
+   Compiling auto_impl v1.2.0
+   Compiling zstd-safe v7.2.4
+   Compiling rusqlite v0.37.0
+   Compiling ed25519-dalek v2.1.1
+   Compiling deno_fs v0.142.0 (/opt/kaju/deno/ext/fs)
+   Compiling hyper-rustls v0.27.2
+   Compiling x509-parser v0.15.1
+   Compiling http-body v0.4.6
+   Compiling aead-gcm-stream v0.4.0
+   Compiling deno_subprocess_windows v0.27.0 (/opt/kaju/deno/runtime/subprocess_windows)
+   Compiling tower v0.4.13
+   Compiling async-compression v0.4.11
+   Compiling deno_crypto_provider v0.26.0 (/opt/kaju/deno/libs/crypto)
+   Compiling swc_allocator v4.0.1
+   Compiling swc_config v3.1.2
+   Compiling deno_media_type v0.4.0
+   Compiling ecb v0.1.2
+   Compiling blake2 v0.10.6
+   Compiling sm3 v0.4.2
+   Compiling ripemd v0.1.3
+   Compiling md4 v0.10.2
+   Compiling md-5 v0.10.6
+   Compiling num-iter v0.1.44
+   Compiling swc_bundler v35.0.0
+   Compiling crc-catalog v1.1.1
+   Compiling opentelemetry-semantic-conventions v0.27.0
+   Compiling crc v2.1.0
+   Compiling swc_ecma_transforms_react v33.0.0
+   Compiling swc_ecma_codegen v20.0.2
+   Compiling tower-http v0.6.1
+   Compiling deno_tunnel v0.8.1
+   Compiling swc_graph_analyzer v14.0.1
+   Compiling deno_package_json v0.34.0 (/opt/kaju/deno/libs/package_json)
+   Compiling swc_ecma_transforms_optimization v32.0.0
+   Compiling regalloc2 v0.11.1
+   Compiling swc_ecma_transforms_classes v30.0.0
+   Compiling swc_ecma_lexer v26.0.0
+   Compiling gpu-allocator v0.28.0
+   Compiling gpu-descriptor v0.3.2
+   Compiling hyper-timeout v0.5.2
+   Compiling swc_ecma_loader v17.0.0
+   Compiling tower v0.5.2
+   Compiling wgpu-types v28.0.0
+   Compiling tokio-socks v0.5.1
+   Compiling web-transport-proto v0.2.7
+   Compiling gimli v0.31.1
+   Compiling itertools v0.14.0
+   Compiling ordered-float v2.10.1
+   Compiling nibble_vec v0.1.0
+   Compiling dlopen2_derive v0.4.0
+   Compiling syn v2.0.87
+   Compiling inotify-sys v0.1.5
+   Compiling fiat-crypto v0.1.20
+   Compiling radix_fmt v1.0.0
+   Compiling dissimilar v1.0.9
+   Compiling deno_napi v0.163.0 (/opt/kaju/deno/ext/napi)
+   Compiling async-once-cell v0.5.4
+   Compiling relative-path v1.9.2
+   Compiling endian-type v0.1.2
+   Compiling radix_trie v0.2.1
+   Compiling ed448-goldilocks v0.8.3
+   Compiling swc_macros_common v1.0.1
+   Compiling inotify v0.9.6
+   Compiling dlopen2 v0.6.1
+   Compiling serde-value v0.7.0
+   Compiling dprint-swc-ext v0.26.0
+   Compiling deno_net v0.224.0 (/opt/kaju/deno/ext/net)
+   Compiling deno_fetch v0.256.0 (/opt/kaju/deno/ext/fetch)
+   Compiling tonic v0.12.3
+   Compiling swc_ecma_transforms_proposal v30.0.0
+   Compiling saffron v0.1.0
+   Compiling zstd v0.13.2
+   Compiling swc_ecma_transforms_typescript v33.0.0
+   Compiling libffi v4.1.2
+   Compiling opentelemetry_sdk v0.27.1
+   Compiling aes-gcm v0.10.3
+   Compiling ocb3 v0.1.0
+   Compiling icu_properties v2.1.1
+   Compiling fastwebsockets v0.8.1
+   Compiling png v0.17.13
+   Compiling aes-kw v0.2.1
+   Compiling halfbrown v0.2.5
+   Compiling webpki-root-certs v0.26.6
+   Compiling napi_sym v0.162.0 (/opt/kaju/deno/ext/napi/sym)
+   Compiling libloading v0.7.4
+   Compiling memmap2 v0.9.5
+   Compiling errno v0.3.10
+   Compiling deno_whoami v0.1.0
+   Compiling unicode-segmentation v1.11.0
+   Compiling deno_dotenv v0.1.0 (/opt/kaju/deno/libs/dotenv)
+   Compiling value-trait v0.10.0
+   Compiling faster-hex v0.10.0
+   Compiling image v0.25.4
+   Compiling opentelemetry-proto v0.27.0
+   Compiling urlpattern v0.4.2
+   Compiling deno_ast v0.53.1
+   Compiling wgpu-core-deps-windows-linux-android v28.0.0
+   Compiling rsa v0.9.10
+   Compiling p384 v0.13.0
+   Compiling p256 v0.13.2
+   Compiling globset v0.4.14
+   Compiling lazy-regex v3.1.0
+   Compiling color-print-proc-macro v0.3.5
+   Compiling node_resolver v0.70.0 (/opt/kaju/deno/libs/node_resolver)
+   Compiling color-print v0.3.5
+   Compiling ignore v0.4.20
+   Compiling opentelemetry-otlp v0.27.0
+   Compiling deno_image v0.8.0 (/opt/kaju/deno/ext/image)
+   Compiling deno_web v0.263.0 (/opt/kaju/deno/ext/web)
+   Compiling simd-json v0.14.0
+   Compiling cranelift-frontend v0.116.1
+   Compiling dsa v0.6.3
+   Compiling deno_lockfile v0.34.0 (/opt/kaju/deno/libs/lockfile)
+   Compiling deno_os v0.49.0 (/opt/kaju/deno/ext/os)
+   Compiling p224 v0.13.2
+   Compiling v8_valueserializer v0.1.1
+   Compiling k256 v0.13.3
+   Compiling h2 v0.3.26
+   Compiling tempfile v3.10.1
+   Compiling denort_helper v0.30.0 (/opt/kaju/deno/ext/rt_helper)
+   Compiling hdrhistogram v7.5.4
+   Compiling import_map v0.25.0
+   Compiling jsonc-parser v0.28.0
+   Compiling strsim v0.11.1
+   Compiling deno_node v0.170.0 (/opt/kaju/deno/ext/node)
+   Compiling hyper v0.14.28
+   Compiling deno_config v0.82.0 (/opt/kaju/deno/libs/config)
+   Compiling tokio-eld v0.2.0
+   Compiling deno_webgpu v0.199.0 (/opt/kaju/deno/ext/webgpu)
+   Compiling deno_process v0.47.0 (/opt/kaju/deno/ext/process)
+   Compiling deno_node_crypto v0.2.0 (/opt/kaju/deno/ext/node_crypto)
+   Compiling denokv_sqlite v0.13.0
+   Compiling deno_npm v0.44.0 (/opt/kaju/deno/libs/npm)
+   Compiling cranelift v0.116.1
+   Compiling deno_telemetry v0.54.0 (/opt/kaju/deno/ext/telemetry)
+   Compiling denokv_remote v0.13.0
+   Compiling deno_websocket v0.237.0 (/opt/kaju/deno/ext/websocket)
+   Compiling deno_inspector_server v0.6.0 (/opt/kaju/deno/libs/inspector_server)
+   Compiling cranelift-native v0.116.1
+   Compiling deno_cache_dir v0.27.0
+   Compiling deno_node_sqlite v0.2.0 (/opt/kaju/deno/ext/node_sqlite)
+   Compiling p521 v0.13.3
+   Compiling node_shim v0.7.0 (/opt/kaju/deno/libs/node_shim)
+   Compiling anstyle-parse v0.2.3
+   Compiling fd-lock v4.0.2
+   Compiling twox-hash v1.6.3
+   Compiling mio v0.8.11
+   Compiling colorchoice v1.0.0
+   Compiling anstyle v1.0.8
+   Compiling anstyle-query v1.0.2
+   Compiling is_terminal_polyfill v1.70.1
+   Compiling notify v6.1.1
+   Compiling anstream v0.6.15
+   Compiling deno_graph v0.107.0
+   Compiling rustyline v13.0.0
+   Compiling deno_crypto v0.246.0 (/opt/kaju/deno/ext/crypto)
+   Compiling deno_resolver v0.63.0 (/opt/kaju/deno/libs/resolver)
+   Compiling deno_ffi v0.219.0 (/opt/kaju/deno/ext/ffi)
+   Compiling deno_http v0.230.0 (/opt/kaju/deno/ext/http)
+   Compiling deno_kv v0.140.0 (/opt/kaju/deno/ext/kv)
+   Compiling deno_canvas v0.94.0 (/opt/kaju/deno/ext/canvas)
+   Compiling deno_bundle_runtime v0.19.0 (/opt/kaju/deno/ext/bundle)
+   Compiling deno_cron v0.112.0 (/opt/kaju/deno/ext/cron)
+   Compiling deno_cache v0.165.0 (/opt/kaju/deno/ext/cache)
+   Compiling deno_webstorage v0.227.0 (/opt/kaju/deno/ext/webstorage)
+   Compiling tokio-metrics v0.3.1
+   Compiling deno_webidl v0.232.0 (/opt/kaju/deno/ext/webidl)
+   Compiling deno_runtime v0.240.0 (/opt/kaju/deno/runtime)
+   Compiling ident_case v1.0.1
+   Compiling darling_core v0.20.10
+   Compiling xattr v1.3.1
+   Compiling vte_generate_state_changes v0.1.1
+   Compiling tar v0.4.43
+   Compiling darling_macro v0.20.10
+   Compiling terminal_size v0.4.1
+   Compiling onig_sys v69.9.1
+   Compiling ucd-trie v0.1.6
+   Compiling clap_lex v0.7.4
+   Compiling clap_builder v4.5.56
+   Compiling pest v2.7.15
+   Compiling darling v0.20.10
+   Compiling clap_derive v4.5.55
+   Compiling libdbus-sys v0.2.5
+   Compiling borrow-or-share v0.2.4
+   Compiling debug-ignore v1.0.5
+   Compiling editpe v0.1.0
+   Compiling fluent-uri v0.4.1
+   Compiling clap v4.5.56
+   Compiling derive_builder_core v0.20.2
+   Compiling pest_meta v2.7.15
+   Compiling deno_npm_cache v0.51.0 (/opt/kaju/deno/libs/npm_cache)
+   Compiling deno_snapshots v0.47.0 (/opt/kaju/deno/cli/snapshot)
+   Compiling dprint-core v0.67.4
+   Compiling env_filter v0.1.3
+   Compiling phf_codegen v0.11.3
+   Compiling caseless v0.2.1
+   Compiling unicase v2.7.0
+   Compiling option-ext v0.2.0
+   Compiling bindgen v0.70.1
+   Compiling dtoa v1.0.10
+   Compiling humantime v2.1.0
+   Compiling deno_lib v0.50.0 (/opt/kaju/deno/cli/lib)
+   Compiling dtoa-short v0.3.5
+   Compiling env_logger v0.11.6
+   Compiling dirs-sys v0.4.1
+   Compiling selectors v0.30.0
+   Compiling deno_npm_installer v0.27.0 (/opt/kaju/deno/libs/npm_installer)
+   Compiling pest_generator v2.7.15
+   Compiling onig v6.5.1
+   Compiling derive_builder_macro v0.20.2
+   Compiling libsui v0.12.6
+   Compiling vte v0.13.1
+   Compiling tiny_pretty v0.2.0
+   Compiling signal-hook-mio v0.2.4
+   Compiling dprint-core-macros v0.1.0
+   Compiling unicode-normalization v0.1.23
+   Compiling num-rational v0.4.2
+   Compiling num-complex v0.4.6
+   Compiling derive_more-impl v2.0.1
+   Compiling winnow v0.6.26
+   Compiling cssparser-macros v0.6.1
+   Compiling arc-swap v1.7.1
+   Compiling deunicode v1.4.3
+   Compiling unicode_categories v0.1.1
+   Compiling countme v3.0.1
+   Compiling pulldown-cmark v0.11.2
+   Compiling css_dataset v0.4.1
+   Compiling text-size v1.1.1
+   Compiling zip v2.4.1
+   Compiling rowan v0.15.15
+   Compiling slug v0.1.5
+   Compiling cssparser v0.35.0
+   Compiling derive_more v2.0.1
+   Compiling num v0.4.2
+   Compiling crossterm v0.28.1
+   Compiling console_static_text v0.8.3
+   Compiling dbus v0.9.7
+   Compiling derive_builder v0.20.2
+   Compiling syntect v5.3.0
+   Compiling pest_derive v2.7.15
+   Compiling dirs v5.0.1
+   Compiling vte v0.11.1
+   Compiling crossbeam-queue v0.3.11
+   Compiling raffia_macro v0.1.1
+   Compiling fxhash v0.2.1
+   Compiling servo_arc v0.4.1
+   Compiling asynchronous-codec v0.7.0
+   Compiling is-docker v0.2.0
+   Compiling shell-words v1.1.0
+   Compiling entities v1.0.1
+   Compiling typed-arena v2.0.2
+   Compiling is_executable v1.0.5
+   Compiling utf8-width v0.1.7
+   Compiling convert_case v0.4.0
+   Compiling precomputed-hash v0.1.1
+   Compiling xdg v2.5.2
+   Compiling derive_more v0.99.17
+   Compiling comrak v0.29.0
+   Compiling libuv-sys-lite v1.48.2
+   Compiling html-escape v0.2.13
+   Compiling clap_complete v4.5.65
+   Compiling zeromq v0.5.0-pre
+   Compiling is-wsl v0.4.0
+   Compiling raffia v0.9.2
+   Compiling strip-ansi-escapes v0.2.0
+   Compiling dbus-secret-service v4.0.3
+   Compiling shellexpand v3.1.0
+   Compiling handlebars v6.1.0
+   Compiling yaml_parser v0.2.1
+   Compiling ls-types v0.0.3
+   Compiling denort v2.6.10 (/opt/kaju/deno/cli/rt)
+   Compiling deno v2.6.10 (/opt/kaju/deno/cli)
+   Compiling hashlink v0.8.4
+   Compiling jupyter-protocol v0.8.0
+   Compiling rmp v0.8.14
+   Compiling path-dedot v3.1.1
+   Compiling serde_repr v0.1.19
+   Compiling quick-xml v0.31.0
+   Compiling deno-tower-lsp-macros v0.12.0
+   Compiling jsonc-parser v0.27.1
+   Compiling napi-build v1.2.1
+   Compiling quick-junit v0.3.6
+   Compiling dprint-plugin-jupyter v0.2.1
+   Compiling deno_typescript_go_client_rust v0.14.0 (/opt/kaju/deno/libs/typescript_go_client)
+   Compiling test_napi v0.1.0 (/opt/kaju/deno/tests/napi)
+   Compiling deno_task_shell v0.29.0
+   Compiling runtimelib v0.28.0
+   Compiling eszip v0.110.0 (/opt/kaju/deno/libs/eszip)
+   Compiling deno_tower_lsp v0.5.0
+   Compiling deno_doc v0.190.1
+   Compiling malva v0.12.1
+   Compiling pretty_yaml v0.5.0
+   Compiling markup_fmt v0.22.0
+   Compiling dprint-plugin-markdown v0.20.0
+   Compiling keyring v3.6.3
+   Compiling open v5.1.2
+   Compiling clap_complete_fig v4.5.2
+   Compiling deno_lint v0.83.0
+   Compiling lol_html v2.6.0
+   Compiling sqlformat v0.3.5
+   Compiling dprint-plugin-json v0.21.1
+   Compiling dprint-plugin-typescript v0.95.15
+   Compiling file_test_runner v0.12.1
+   Compiling rustyline-derive v0.7.0
+   Compiling fancy-regex v0.14.0
+   Compiling esbuild_client v0.7.1
+   Compiling serde_urlencoded v0.7.1
+   Compiling test_macro v0.2.0 (/opt/kaju/deno/tests/util/test_macro)
+   Compiling locked-tripwire v0.1.1
+   Compiling shell-escape v0.1.5
+   Compiling weak-table v0.3.2
+   Compiling test_util v0.1.0 (/opt/kaju/deno/tests/util/lib)
+   Compiling reqwest v0.12.5
+   Compiling bencher v0.1.5
+   Compiling napi-sys v2.2.2
+   Compiling test_server v0.1.0 (/opt/kaju/deno/tests/util/server)
+   Compiling deno_bench_util v0.226.0 (/opt/kaju/deno/tests/bench_util)
+   Compiling deno_url v0.222.0 (/opt/kaju/deno/ext/url)
+   Compiling test_ffi v0.1.0 (/opt/kaju/deno/tests/ffi)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 5m 22s

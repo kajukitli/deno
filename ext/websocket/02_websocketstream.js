@@ -90,6 +90,8 @@ const _opened = Symbol("[[opened]]");
 const _closed = Symbol("[[closed]]");
 const _earlyClose = Symbol("[[earlyClose]]");
 const _closeSent = Symbol("[[closeSent]]");
+const _remoteCloseCode = Symbol("[[remoteCloseCode]]");
+const _remoteCloseReason = Symbol("[[remoteCloseReason]]");
 class WebSocketStream {
   [_rid];
 
@@ -275,18 +277,36 @@ class WebSocketStream {
                 }
                 case 1005: {
                   /* closed */
-                  this[_closed].resolve({ closeCode: 1005, reason: "" });
-                  core.tryClose(this[_rid]);
+                  console.log("DEBUG: Received remote close 1005, closeSent state:", this[_closeSent].state);
+                  this[_remoteCloseCode] = 1005;
+                  this[_remoteCloseReason] = "";
+                  // Only resolve immediately if we haven't sent a close frame
+                  if (this[_closeSent].state !== "fulfilled") {
+                    console.log("DEBUG: Resolving closed with remote code 1005");
+                    this[_closed].resolve({ closeCode: 1005, reason: "" });
+                    core.tryClose(this[_rid]);
+                  } else {
+                    console.log("DEBUG: Deferring close resolution, waiting for timeout logic");
+                  }
                   break;
                 }
                 default: {
                   /* close */
                   const reason = op_ws_get_error(this[_rid]);
-                  this[_closed].resolve({
-                    closeCode: kind,
-                    reason,
-                  });
-                  core.tryClose(this[_rid]);
+                  console.log(`DEBUG: Received remote close ${kind}, reason="${reason}", closeSent state:`, this[_closeSent].state);
+                  this[_remoteCloseCode] = kind;
+                  this[_remoteCloseReason] = reason;
+                  // Only resolve immediately if we haven't sent a close frame
+                  if (this[_closeSent].state !== "fulfilled") {
+                    console.log(`DEBUG: Resolving closed with remote code ${kind}`);
+                    this[_closed].resolve({
+                      closeCode: kind,
+                      reason,
+                    });
+                    core.tryClose(this[_rid]);
+                  } else {
+                    console.log("DEBUG: Deferring close resolution, waiting for timeout logic");
+                  }
                   break;
                 }
               }
@@ -295,13 +315,27 @@ class WebSocketStream {
                 this[_closeSent].state === "fulfilled" &&
                 this[_closed].state === "pending"
               ) {
+                console.log("DEBUG: In timeout logic, remoteCloseCode:", this[_remoteCloseCode]);
+                // If we received a remote close frame, use that
+                if (this[_remoteCloseCode] !== null) {
+                  console.log(`DEBUG: Using remote close code ${this[_remoteCloseCode]}, reason="${this[_remoteCloseReason]}"`);
+                  this[_closed].resolve({
+                    closeCode: this[_remoteCloseCode],
+                    reason: this[_remoteCloseReason],
+                  });
+                  core.tryClose(this[_rid]);
+                  return;
+                }
+                
                 if (
                   DateNow() - await this[_closeSent].promise <=
                     CLOSE_RESPONSE_TIMEOUT
                 ) {
+                  console.log("DEBUG: Still within timeout, continuing to pull");
                   return pull(controller);
                 }
 
+                console.log("DEBUG: Timeout exceeded, rejecting with error");
                 const error = op_ws_get_error(this[_rid]);
                 this[_closed].reject(new WebSocketError(error));
                 core.tryClose(this[_rid]);
@@ -388,6 +422,8 @@ class WebSocketStream {
   [_earlyClose] = false;
   [_closed] = new Deferred();
   [_closeSent] = new Deferred();
+  [_remoteCloseCode] = null;
+  [_remoteCloseReason] = null;
   get closed() {
     webidl.assertBranded(this, WebSocketStreamPrototype);
     return this[_closed].promise;
@@ -410,10 +446,12 @@ class WebSocketStream {
     if (this[_opened].state === "pending") {
       this[_earlyClose] = true;
     } else if (this[_closed].state === "pending") {
+      console.log(`DEBUG: Sending local close frame with code=${closeInfo.closeCode}, reason="${closeInfo.reason}"`);
       PromisePrototypeThen(
         op_ws_close(this[_rid], closeInfo.closeCode, closeInfo.reason),
         () => {
           setTimeout(() => {
+            console.log("DEBUG: Marking closeSent as resolved");
             this[_closeSent].resolve(DateNow());
           }, 0);
         },
