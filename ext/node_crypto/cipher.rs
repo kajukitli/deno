@@ -504,12 +504,7 @@ pub enum DecipherError {
   #[class(type)]
   #[error("Failed to authenticate data")]
   DataAuthenticationFailed,
-  #[class(type)]
-  #[error("setAutoPadding(false) not supported for Aes128Gcm yet")]
-  SetAutoPaddingFalseAes128GcmUnsupported,
-  #[class(type)]
-  #[error("setAutoPadding(false) not supported for Aes256Gcm yet")]
-  SetAutoPaddingFalseAes256GcmUnsupported,
+
   #[class(type)]
   #[error("Unknown cipher {0}")]
   UnknownCipher(String),
@@ -820,8 +815,20 @@ impl Decipher {
           Err(DecipherError::DataAuthenticationFailed)
         }
       }
-      (Aes128Gcm(..), false) => {
-        Err(DecipherError::SetAutoPaddingFalseAes128GcmUnsupported)
+      (Aes128Gcm(decipher, auth_tag_length), false) => {
+        // GCM mode doesn't use padding, so setAutoPadding(false) should be a no-op
+        let tag = decipher.finish();
+        let tag_slice = tag.as_slice();
+        let truncated_tag = if let Some(len) = auth_tag_length {
+          &tag_slice[..len]
+        } else {
+          tag_slice
+        };
+        if truncated_tag == auth_tag {
+          Ok(())
+        } else {
+          Err(DecipherError::DataAuthenticationFailed)
+        }
       }
       (Aes256Gcm(decipher, auth_tag_length), true) => {
         let tag = decipher.finish();
@@ -837,8 +844,20 @@ impl Decipher {
           Err(DecipherError::DataAuthenticationFailed)
         }
       }
-      (Aes256Gcm(..), false) => {
-        Err(DecipherError::SetAutoPaddingFalseAes256GcmUnsupported)
+      (Aes256Gcm(decipher, auth_tag_length), false) => {
+        // GCM mode doesn't use padding, so setAutoPadding(false) should be a no-op
+        let tag = decipher.finish();
+        let tag_slice = tag.as_slice();
+        let truncated_tag = if let Some(len) = auth_tag_length {
+          &tag_slice[..len]
+        } else {
+          tag_slice
+        };
+        if truncated_tag == auth_tag {
+          Ok(())
+        } else {
+          Err(DecipherError::DataAuthenticationFailed)
+        }
       }
       (Aes256Cbc(decryptor), true) => {
         assert_block_len!(input.len(), 16);
