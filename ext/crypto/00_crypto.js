@@ -29,9 +29,12 @@ import {
   op_crypto_export_spki_x448,
   op_crypto_generate_ed25519_keypair,
   op_crypto_generate_key,
+  op_crypto_generate_key_rust,
   op_crypto_generate_x25519_keypair,
   op_crypto_generate_x448_keypair,
+  op_crypto_get_key,
   op_crypto_get_random_values,
+  op_crypto_store_key,
   op_crypto_import_key,
   op_crypto_import_pkcs8_ed25519,
   op_crypto_import_pkcs8_x25519,
@@ -451,6 +454,22 @@ function usageIntersection(a, b) {
 /** @type {WeakMap<object, object>} */
 const KEY_STORE = new SafeWeakMap();
 
+// Helper function to get key data from either old WeakMap or new resource system
+function getKeyData(handle) {
+  // Try the old WeakMap first
+  const legacyKeyData = WeakMapPrototypeGet(KEY_STORE, handle);
+  if (legacyKeyData) {
+    return legacyKeyData;
+  }
+  
+  // If handle is a resource ID (number), get key data from Rust
+  if (typeof handle === "number") {
+    return op_crypto_get_key(handle);
+  }
+  
+  throw new DOMException("Invalid key handle", "OperationError");
+}
+
 function getKeyLength(algorithm) {
   switch (algorithm.name) {
     case "AES-CBC":
@@ -640,7 +659,7 @@ class SubtleCrypto {
     }
 
     const handle = key[_handle];
-    const keyData = WeakMapPrototypeGet(KEY_STORE, handle);
+    const keyData = getKeyData(handle);
 
     switch (normalizedAlgorithm.name) {
       case "RSA-OAEP": {
@@ -1714,18 +1733,13 @@ async function generateKey(normalizedAlgorithm, extractable, usages) {
       }
 
       // 2.
-      const keyData = await op_crypto_generate_key(
+      const keyResult = op_crypto_generate_key_rust(
         {
           algorithm: "RSA",
           modulusLength: normalizedAlgorithm.modulusLength,
           publicExponent: normalizedAlgorithm.publicExponent,
         },
       );
-      const handle = {};
-      WeakMapPrototypeSet(KEY_STORE, handle, {
-        type: "private",
-        data: keyData,
-      });
 
       // 4-8.
       const algorithm = {
@@ -1741,7 +1755,7 @@ async function generateKey(normalizedAlgorithm, extractable, usages) {
         true,
         usageIntersection(usages, ["verify"]),
         algorithm,
-        handle,
+        keyResult.publicKey,
       );
 
       // 14-18.
@@ -1750,7 +1764,7 @@ async function generateKey(normalizedAlgorithm, extractable, usages) {
         extractable,
         usageIntersection(usages, ["sign"]),
         algorithm,
-        handle,
+        keyResult.privateKey,
       );
 
       // 19-22.

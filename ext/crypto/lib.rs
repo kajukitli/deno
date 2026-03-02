@@ -913,3 +913,51 @@ fn test_fast_uuid_v4_correctness() {
     .to_string();
   assert_eq!(uuid, uuid_lib);
 }
+
+#[test]
+fn test_key_store_basic() {
+  use crate::key_store::{store_key, get_key, KeyType};
+  use deno_core::OpState;
+  
+  let mut state = OpState::new(None);
+  
+  // Test storing and retrieving a secret key
+  let test_data = vec![1, 2, 3, 4, 5];
+  let rid = store_key(&mut state, KeyType::Secret, test_data.clone());
+  
+  // Verify we can retrieve the key
+  let retrieved = get_key(&state, rid).unwrap();
+  assert!(matches!(retrieved.key_type, KeyType::Secret));
+  assert_eq!(retrieved.data, test_data);
+}
+
+#[test] 
+fn test_generate_key_internal() {
+  use crate::generate_key::{GenerateKeyOptions, generate_key_internal};
+  use crate::key_store::{store_key, get_key, KeyType};
+  use deno_core::OpState;
+  
+  let mut state = OpState::new(None);
+  
+  let opts = GenerateKeyOptions::Rsa {
+    modulus_length: 2048,
+    public_exponent: vec![1, 0, 1], // 65537
+  };
+  
+  // Test the internal key generation
+  let key_data = generate_key_internal(opts).unwrap();
+  assert!(!key_data.is_empty());
+  
+  // Test storing in key store
+  let private_rid = store_key(&mut state, KeyType::Private, key_data.clone());
+  let public_rid = store_key(&mut state, KeyType::Public, key_data.clone());
+  
+  // Verify we can retrieve both keys
+  let private_material = get_key(&state, private_rid).unwrap();
+  let public_material = get_key(&state, public_rid).unwrap();
+  
+  assert!(matches!(private_material.key_type, KeyType::Private));
+  assert!(matches!(public_material.key_type, KeyType::Public));
+  assert_eq!(private_material.data, key_data);
+  assert_eq!(public_material.data, key_data);
+}
