@@ -49,7 +49,7 @@ static PUB_EXPONENT_1: Lazy<BigUint> =
 static PUB_EXPONENT_2: Lazy<BigUint> =
   Lazy::new(|| BigUint::from_u64(65537).unwrap());
 
-#[derive(Deserialize)]
+#[derive(Deserialize, Clone)]
 #[serde(rename_all = "camelCase", tag = "algorithm")]
 pub enum GenerateKeyOptions {
   #[serde(rename = "RSA", rename_all = "camelCase")]
@@ -69,11 +69,8 @@ pub enum GenerateKeyOptions {
   },
 }
 
-#[op2]
-pub async fn op_crypto_generate_key(
-  #[serde] opts: GenerateKeyOptions,
-) -> Result<Uint8Array, GenerateKeyError> {
-  let fun = || match opts {
+pub fn generate_key_internal(opts: GenerateKeyOptions) -> Result<Vec<u8>, GenerateKeyError> {
+  match opts {
     GenerateKeyOptions::Rsa {
       modulus_length,
       public_exponent,
@@ -83,8 +80,14 @@ pub async fn op_crypto_generate_key(
     GenerateKeyOptions::Hmac { hash, length } => {
       generate_key_hmac(hash, length)
     }
-  };
-  let buf = spawn_blocking(fun).await.unwrap()?;
+  }
+}
+
+#[op2]
+pub async fn op_crypto_generate_key(
+  #[serde] opts: GenerateKeyOptions,
+) -> Result<Uint8Array, GenerateKeyError> {
+  let buf = spawn_blocking(|| generate_key_internal(opts)).await.unwrap()?;
   Ok(buf.into())
 }
 

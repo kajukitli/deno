@@ -57,6 +57,8 @@ mod export_key;
 mod generate_key;
 mod import_key;
 mod key;
+mod key_store;
+mod key_store_ops;
 mod shared;
 mod x25519;
 mod x448;
@@ -69,6 +71,7 @@ pub use crate::encrypt::op_crypto_encrypt;
 pub use crate::export_key::ExportKeyError;
 pub use crate::export_key::op_crypto_export_key;
 pub use crate::generate_key::GenerateKeyError;
+pub use crate::generate_key::GenerateKeyOptions;
 pub use crate::generate_key::op_crypto_generate_key;
 pub use crate::import_key::ImportKeyError;
 pub use crate::import_key::op_crypto_import_key;
@@ -99,6 +102,10 @@ deno_core::extension!(deno_crypto,
     op_crypto_unwrap_key,
     op_crypto_base64url_decode,
     op_crypto_base64url_encode,
+    key_store_ops::op_crypto_store_key,
+    key_store_ops::op_crypto_store_keypair,
+    key_store_ops::op_crypto_get_key,
+    key_store_ops::op_crypto_generate_key_rust,
     x25519::op_crypto_generate_x25519_keypair,
     x25519::op_crypto_x25519_public_key,
     x25519::op_crypto_derive_bits_x25519,
